@@ -33,7 +33,7 @@ Linux may require `npx playwright install --with-deps chromium`. A compatible sy
 
 Nine browser checks cover résumé content and contact privacy, project filtering, both dialogs and focus restoration, mobile navigation,320/390px widths, reduced motion, and desktop/dialog axe accessibility scans. Automated scans are partial evidence, not complete WCAG certification. Reports and failure traces are generated under ignored `playwright-report/` and `test-results/`.
 
-Regenerate the previews with `npm run preview:capture`. This uses port4174. Local checks and screenshots were made with system Chromium. The included workflow has not yet been verified on a GitHub-hosted runner.
+Regenerate the previews with `npm run preview:capture`. This uses port4174. Local checks and screenshots were made with system Chromium. The workflow passed on GitHub-hosted runners and deployed the portfolio successfully: [verified run](https://github.com/atharvaborade/atharvaborade.github.io/actions/runs/42108093054).
 
 ## Host free on GitHub Pages
 
@@ -43,7 +43,7 @@ Regenerate the previews with `npm run preview:capture`. This uses port4174. Loca
 4. In **Actions**, allow the “Portfolio checks and Pages” workflow to finish. It runs the tests before deploying.
 5. Use the actual URL reported by the deployment. For the correctly named account repository, the expected address is `https://atharvaborade.github.io/`.
 
-That address is a deployment target, not a claim that the site is currently live. Publishing requires access to the repository and Pages enabled. All assets use relative paths, so deployment under another repository path also works. Do not upload this repository's ZIP as a single file and expect GitHub to extract it automatically.
+GitHub has confirmed a successful deployment to that address. Keep Pages → Source set to GitHub Actions so the tested portfolio workflow controls future updates. Direct requests to the live domain are blocked by the development environment's network policy; deployment status was verified on GitHub. All assets use relative paths, so deployment under another repository path also works. Do not upload this repository's ZIP as a single file and expect GitHub to extract it automatically.
 
 ## Content updates
 

@@ -17,6 +17,6 @@ A résumé was supplied for professional details. Its original PDF, personal pho
 
 Local browser suite:9 tests passed in8.6seconds using system Chromium and2 workers after a hero-text contrast correction. The axe rules were retained; the contrast defect was fixed in the site. Mobile widths320px and390px fit without horizontal overflow. Dialogs support Escape and return focus to their opener. Reduced-motion preference disables smooth scrolling and animation.
 
-Desktop and mobile screenshots are in `docs/previews/`. Small arrow icons are inline SVG to avoid missing-font glyphs. A static GitHub Pages deployment workflow is included; remote publication and hosted CI remain unverified until repository access is available.
+Desktop and mobile screenshots are in `docs/previews/`. Small arrow icons are inline SVG to avoid missing-font glyphs. The portfolio was pushed to atharvaborade/atharvaborade.github.io and the GitHub-hosted test/deployment workflow succeeded for commit322f2e4. Verified run: https://github.com/atharvaborade/atharvaborade.github.io/actions/runs/42108093054. The live domain is blocked by the development environment network, so public-site HTTP responses were not independently inspected. Set Pages source to GitHub Actions to avoid competing branch-based publishing.
 
 Full accessibility certification, screen-reader review and Firefox/WebKit testing are outside these automated checks.
