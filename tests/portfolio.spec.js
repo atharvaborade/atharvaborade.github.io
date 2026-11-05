@@ -39,7 +39,7 @@ test('case studies open the selected project and return focus after closing', as
   const slotwise = page.getByRole('button', { name: 'Explore Slotwise', exact: true });
   await slotwise.click();
   await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole('heading', { name: 'Slotwise — Playwright Quality Engineering Lab', exact: true })).toBeVisible();
+  await expect(dialog.getByRole('heading', { name: 'Slotwise — JavaScript BDD & Playwright Lab', exact: true })).toBeVisible();
   await expect(dialog.getByRole('link', { name: 'View project source', exact: true })).toHaveAttribute('href', 'https://github.com/atharvaborade/playwright-quality-lab');
   await expect(dialog.locator('.case-status')).toContainText('Source published on GitHub');
   await dialog.getByRole('button', { name: 'Close case study', exact: true }).click();

@@ -61,6 +61,6 @@ GitHub has confirmed a successful deployment to that address. Keep Pages → Sou
 
 Current content is based on the supplied résumé, the confirmed LinkedIn URL, and the recorded portfolio-project evidence. It includes the VOIS and Nebula Technology roles, degree, relevant tools, and résumé-reported career results. The original PDF, personal email, and phone number are not part of the published site. There is no portrait, fabricated certification, employer source code, or invented project outcome.
 
-Library Management source was published previously; its full app runs locally. Slotwise source and its CI workflow are now published at https://github.com/atharvaborade/playwright-quality-lab; the full booking app runs locally. Neither card claims a public live application.
+Library Management source was published previously; its full app runs locally. Slotwise is now a JavaScript Cucumber BDD + Playwright framework with Allure and per-scenario traces. Its93-scenario baseline and three-worker headed smoke passed on GitHub. Source: https://github.com/atharvaborade/playwright-quality-lab. The full booking app runs locally. Neither card claims a public live application.
 
 The supplied reel is a visual reference only. Its creator's identity, photographs, project claims and assets are not reused.

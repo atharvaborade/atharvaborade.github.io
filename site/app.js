@@ -59,17 +59,17 @@ for (const filter of filters) {
 
 const caseStudies = {
   slotwise: `
-    <h2 id="dialog-title" tabindex="-1">Slotwise — Playwright Quality Engineering Lab</h2>
-    <p>A small booking product paired with a risk-based automation suite. Its purpose is to demonstrate how tests protect booking integrity and account ownership.</p>
-    <img class="case-image" src="assets/slotwise.png" alt="Slotwise's booking screen with a confirmed appointment" width="1440" height="1286">
+    <h2 id="dialog-title" tabindex="-1">Slotwise — JavaScript BDD &amp; Playwright Lab</h2>
+    <p>A JavaScript Cucumber BDD framework paired with a real booking application. Playwright drives browser and API actions; Allure explains scenario results; Trace Viewer preserves recorded debugging evidence.</p>
+    <img class="case-image" src="assets/slotwise-allure.png" alt="Generated Allure dashboard showing 93 passed Cucumber scenarios" width="1440" height="1000">
     <h3>The engineering question</h3>
     <p>What stops two accounts from booking the same coach at the same time? And can a user cancel someone else’s appointment through the API?</p>
     <h3>What the project demonstrates</h3>
-    <ul><li>18 API checks and 6 browser checks, with isolated accounts and disposable databases.</li><li>Sequential and concurrent booking checks, authorization checks, and session revocation.</li><li>Axe accessibility scans, a keyboard check, and mobile layout checks.</li><li>Two test-only faults: removing booking uniqueness and removing cancellation ownership. The intended assertions detect both.</li><li>GitHub Actions runs the baseline suite and targeted fault experiments, with retained HTML/JSON reports and failure traces.</li></ul>
+    <ul><li>93 Gherkin scenarios: 73 API and 20 UI, implemented in JavaScript with Cucumber and Playwright.</li><li>Three parallel workers with scenario-isolated browser contexts, accounts, cookies, and disposable database fixtures.</li><li>Authentication, booking conflicts, cancellation, validation, authorization, keyboard/mobile journeys, and accessibility scans.</li><li>Two test-only faults: removing booking uniqueness and removing cancellation ownership. The intended assertions detect both.</li><li>Allure reporting with step screenshots and network summaries, plus recorded browser/API traces with Gherkin step groups, DOM snapshots, and native HTTP records.</li></ul>
     <h3>The evidence</h3>
-    <p>24 baseline tests passed locally and in GitHub Actions. Both seeded faults were detected. These are targeted experiments, not a complete security audit or mutation score.</p>
+    <p>93 scenarios and 586 steps passed locally and in GitHub Actions, with a separate three-worker headed-browser smoke check. Evidence verification confirmed three overlapping workers, 185 unique contexts, 370 trace archives, and 93 Allure results. Both seeded faults were detected. These are targeted experiments, not a complete security audit or mutation score.</p>
     <p class="case-status"><strong>Current status:</strong> Source published on GitHub. The full booking application runs locally; there is no public hosted booking service.</p>
-    <p><strong>Stack:</strong> Playwright, TypeScript tests, Express, SQLite, Axe, GitHub Actions configuration.</p>
+    <p><strong>Stack:</strong> JavaScript, Cucumber, Playwright, Allure, Trace Viewer, Express, SQLite, Axe, GitHub Actions.</p>
     <a class="button button-primary" href="https://github.com/atharvaborade/playwright-quality-lab" target="_blank" rel="noopener noreferrer">View project source <span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>
   `,
   library: `

@@ -8,7 +8,7 @@
 - Education: B.E. Computer Engineering, SKN Sinhgad Institute of Technology and Science,2019–2022, Pune.
 - Career metrics:300+ automated regression cases and execution time reduced from5hours to2hours, as reported in the résumé. These are the user's professional claims, separate from locally verified portfolio test results.
 - LinkedIn: user supplied `https://www.linkedin.com/in/atharva-borade/`.
-- Slotwise evidence: locally recorded24 passing checks (18 API,6 browser),2 targeted seeded defects detected. Source is published at https://github.com/atharvaborade/playwright-quality-lab. Hosted type checking, the24-test baseline and both seeded faults passed in https://github.com/atharvaborade/playwright-quality-lab/actions/runs/42113819326.
+- Slotwise migration evidence:93 JavaScript Cucumber scenarios (73 API,20 UI),586 steps,3 observed parallel workers,185 uniquecontexts,370 tracearchives,93 Allure results,2 seededdefects caught locally. Current sourceURLunchanged. Hosted baseline, parallel evidence, three-worker headed smoke and seeded-fault checks passed in https://github.com/atharvaborade/playwright-quality-lab/actions/runs/42121961009.
 - Library Management evidence: previously pushed restoration;7 servlets compiled,12 JSP pages checked,5-table reconstruction and functional smoke workflow. No public application hosting claim.
 
 A résumé was supplied for professional details. Its original PDF, personal phone number and email address are intentionally not copied into the public site. LinkedIn is the contact route. Employer work is summarised without employer source code or internal project identifiers. No portrait or certification was provided. The reel is only an aesthetic reference.
