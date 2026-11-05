@@ -1,0 +1,20 @@
+{
+  "name": "atharva-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Atharva Borade's automation quality engineering portfolio",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "playwright test",
+    "report": "playwright show-report",
+    "preview:capture": "node scripts/capture-preview.mjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@axe-core/playwright": "^4.11.0"
+  }
+}
