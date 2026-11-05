@@ -13,7 +13,10 @@ try {
   browser = await chromium.launch(process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH } : {});
   const page = await browser.newPage({ viewport: {width:1440,height:1000}, reducedMotion:'reduce' });
   await page.goto('http://127.0.0.1:4174/');
-  await page.locator('img').evaluateAll(images => Promise.all(images.map(image => image.decode())));
+  await page.locator('img').evaluateAll(images => {
+    for (const image of images) image.loading = 'eager';
+  });
+  await page.waitForFunction(() => Array.from(document.images).every(image => image.complete && image.naturalWidth > 0));
   mkdirSync('docs/previews', { recursive: true });
   await page.screenshot({ path:'docs/previews/desktop.png', fullPage:true });
   await page.setViewportSize({width:390,height:844});
@@ -21,6 +24,8 @@ try {
   console.log('Captured desktop and mobile previews.');
 } finally {
   if (browser) await browser.close();
-  const exited = new Promise(resolve => server.once('exit', resolve));
-  server.kill('SIGTERM'); await exited;
+  if (server.exitCode === null && server.signalCode === null) {
+    const exited = new Promise(resolve => server.once('exit', resolve));
+    server.kill('SIGTERM'); await exited;
+  }
 }
