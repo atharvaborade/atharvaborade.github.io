@@ -19,6 +19,7 @@ try {
   await page.waitForFunction(() => Array.from(document.images).every(image => image.complete && image.naturalWidth > 0));
   mkdirSync('docs/previews', { recursive: true });
   await page.screenshot({ path:'docs/previews/desktop.png', fullPage:true });
+  await page.screenshot({ path:'docs/previews/desktop-hero.png' });
   await page.setViewportSize({width:390,height:844});
   await page.screenshot({ path:'docs/previews/mobile.png', fullPage:true });
   console.log('Captured desktop and mobile previews.');

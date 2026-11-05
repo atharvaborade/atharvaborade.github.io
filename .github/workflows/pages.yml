@@ -50,3 +50,21 @@ jobs:
       - name: Publish portfolio
         id: deployment
         uses: actions/deploy-pages@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - name: Audit the published website
+        run: npm test
+        env:
+          PORTFOLIO_BASE_URL: ${{ steps.deployment.outputs.page_url }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: portfolio-live-audit
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7

@@ -9,7 +9,9 @@ A responsive portfolio for an automation test engineer. Inspired by the uploaded
 - Reduced-motion support and local assets/fonts
 - Static deployment: no database, paid hosting, API keys or contact-form service required
 
-[Desktop preview](docs/previews/desktop.png) · [Phone preview](docs/previews/mobile.png)
+![Current desktop portfolio preview](docs/previews/desktop-hero.png)
+
+[Full desktop preview](docs/previews/desktop.png) · [Phone preview](docs/previews/mobile.png)
 
 ## Preview
 
@@ -31,9 +33,9 @@ npm test
 
 Linux may require `npx playwright install --with-deps chromium`. A compatible system Chromium can be selected using `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH`.
 
-Nine browser checks cover résumé content and contact privacy, project filtering, both dialogs and focus restoration, mobile navigation,320/390px widths, reduced motion, and desktop/dialog axe accessibility scans. Automated scans are partial evidence, not complete WCAG certification. Reports and failure traces are generated under ignored `playwright-report/` and `test-results/`.
+19 browser checks cover every button and link destination, section navigation, loaded assets and runtime errors, project filters, case-study dialogs, keyboard focus, mobile resizing, external new-tab navigation, résumé content/privacy, scroll entrances, reduced motion, and desktop/dialog axe accessibility scans. Automated scans are partial evidence, not complete WCAG certification. Reports and failure traces are generated under ignored `playwright-report/` and `test-results/`.
 
-Regenerate the previews with `npm run preview:capture`. This uses port4174. Local checks and screenshots were made with system Chromium. The workflow passed on GitHub-hosted runners and deployed the portfolio successfully: [verified run](https://github.com/atharvaborade/atharvaborade.github.io/actions/runs/42108093054).
+Regenerate the previews with `npm run preview:capture`. This uses port4174. Local checks and screenshots were made with system Chromium. The initial workflow passed on GitHub-hosted runners and deployed the portfolio successfully: [initial verified run](https://github.com/atharvaborade/atharvaborade.github.io/actions/runs/42108093054).
 
 ## Host free on GitHub Pages
 
@@ -45,12 +47,17 @@ Regenerate the previews with `npm run preview:capture`. This uses port4174. Loca
 
 GitHub has confirmed a successful deployment to that address. Keep Pages → Source set to GitHub Actions so the tested portfolio workflow controls future updates. Direct requests to the live domain are blocked by the development environment's network policy; deployment status was verified on GitHub. All assets use relative paths, so deployment under another repository path also works. Do not upload this repository's ZIP as a single file and expect GitHub to extract it automatically.
 
+## Feature audit
+
+[Audit coverage and limits](docs/FEATURE-AUDIT.md). The workflow now repeats the browser suite against the actual public URL after deployment. Live reports are uploaded as `portfolio-live-audit`; this is separate from local-server validation.
+
 ## Content updates
 
 - Edit `site/index.html` for page copy, personal details, links and project cards.
 - Edit `site/app.js` for the case-study content.
 - Edit `site/styles.css` for visual styling.
 - Put public images/documents in `site/assets/` and use relative links.
+- After any visible UI change, run `npm run preview:capture` and commit the updated desktop/phone images alongside the change so README previews stay current.
 
 Current content is based on the supplied résumé, the confirmed LinkedIn URL, and the recorded portfolio-project evidence. It includes the VOIS and Nebula Technology roles, degree, relevant tools, and résumé-reported career results. The original PDF, personal email, and phone number are not part of the published site. There is no portrait, fabricated certification, employer source code, or invented project outcome.
 

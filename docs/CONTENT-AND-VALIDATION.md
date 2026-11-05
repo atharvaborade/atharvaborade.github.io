@@ -15,8 +15,14 @@ A résumé was supplied for professional details. Its original PDF, personal pho
 
 ## Validation
 
-Local browser suite:9 tests passed in8.6seconds using system Chromium and2 workers after a hero-text contrast correction. The axe rules were retained; the contrast defect was fixed in the site. Mobile widths320px and390px fit without horizontal overflow. Dialogs support Escape and return focus to their opener. Reduced-motion preference disables smooth scrolling and animation.
+Expanded local browser suite:19 tests passed using system Chromium and2 workers after a hero-text contrast correction. The axe rules were retained; the contrast defect was fixed in the site. Mobile widths320px and390px fit without horizontal overflow. Dialogs support Escape and return focus to their opener. Reduced-motion preference disables smooth scrolling and animation.
 
 Desktop and mobile screenshots are in `docs/previews/`. Small arrow icons are inline SVG to avoid missing-font glyphs. The portfolio was pushed to atharvaborade/atharvaborade.github.io and the GitHub-hosted test/deployment workflow succeeded for commit322f2e4. Verified run: https://github.com/atharvaborade/atharvaborade.github.io/actions/runs/42108093054. The live domain is blocked by the development environment network, so public-site HTTP responses were not independently inspected. Set Pages source to GitHub Actions to avoid competing branch-based publishing.
 
 Full accessibility certification, screen-reader review and Firefox/WebKit testing are outside these automated checks.
+
+## Follow-up feature audit
+
+The interaction audit added checks for all links/buttons, loaded assets, runtime errors, every section target, filter announcements, external new-tab navigation, menu resizing, dialog keyboard cycles and backdrop dismissal. Mobile destination focus was made explicit, dialog Tab cycling was made consistent, and decorative toolkit arrows were removed. See FEATURE-AUDIT.md. README screenshots were regenerated after the visible UI change.
+
+Scroll entrances and staggered project-card motion were added on request, with reduced-motion support and a content-visible fallback. The suite also checks that animation ends with readable content.

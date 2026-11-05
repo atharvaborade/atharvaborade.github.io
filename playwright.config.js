@@ -8,14 +8,14 @@ export default defineConfig({
   workers: 2,
   reporter: [['list'], ['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://127.0.0.1:4173',
+    baseURL: process.env.PORTFOLIO_BASE_URL || 'http://127.0.0.1:4173',
     trace: 'retain-on-failure',
     screenshot: 'only-on-failure',
     launchOptions: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH
       ? { executablePath: process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH }
       : {},
   },
-  webServer: {
+  webServer: process.env.PORTFOLIO_BASE_URL ? undefined : {
     command: 'npm start',
     url: 'http://127.0.0.1:4173',
     reuseExistingServer: false,

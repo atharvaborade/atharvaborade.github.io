@@ -14,7 +14,21 @@ menuButton.addEventListener('click', () => {
   navigation.classList.toggle('is-open', open);
 });
 navigation.addEventListener('click', event => {
-  if (event.target.closest('a')) closeMenu();
+  const link = event.target.closest('a');
+  if (!link) return;
+  const mobileMenuWasOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  closeMenu();
+  if (mobileMenuWasOpen) {
+    event.preventDefault();
+    const section = document.querySelector(link.hash);
+    const destination = section?.querySelector('h2') || section;
+    if (destination) {
+      if (window.location.hash !== link.hash) history.pushState(null, '', link.hash);
+      section.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+      destination.setAttribute('tabindex', '-1');
+      destination.focus({ preventScroll: true });
+    }
+  }
 });
 document.addEventListener('keydown', event => {
   if (event.key === 'Escape' && menuButton.getAttribute('aria-expanded') === 'true') closeMenu(true);
@@ -84,6 +98,19 @@ for (const button of document.querySelectorAll('[data-case]')) {
   });
 }
 dialog.querySelector('.dialog-close').addEventListener('click', () => dialog.close());
+// Keep the keyboard cycle on the dialog's actions, including after scrolling to its last link.
+dialog.addEventListener('keydown', event => {
+  if (event.key !== 'Tab') return;
+  const actions = Array.from(dialog.querySelectorAll('button:not([disabled]), a[href]')).filter(element => element.getClientRects().length);
+  const first = actions[0];
+  const last = actions[actions.length - 1];
+  if (!first) return;
+  if (event.shiftKey && (document.activeElement === first || !actions.includes(document.activeElement))) {
+    event.preventDefault(); last.focus();
+  } else if (!event.shiftKey && (document.activeElement === last || !actions.includes(document.activeElement))) {
+    event.preventDefault(); first.focus();
+  }
+});
 dialog.addEventListener('click', event => {
   const bounds = dialog.getBoundingClientRect();
   if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
@@ -119,4 +146,24 @@ if ('IntersectionObserver' in window) {
     }
   }, { rootMargin: '-20% 0px -55% 0px', threshold: 0 });
   for (const section of document.querySelectorAll('main section[id]:not(#top)')) observer.observe(section);
+}
+
+// Add one-time scroll entrances without hiding content when JavaScript or motion is unavailable.
+if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  const revealObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    }
+  }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+  const revealTargets = document.querySelectorAll('.about-grid > div, .experience-intro, .career-role, .education-card, .project-card, .process-grid > article, .skills-layout > div, .contact-bottom');
+  for (const target of revealTargets) {
+    target.classList.add('scroll-reveal');
+    const siblings = Array.from(target.parentElement.children);
+    const stagger = target.matches('.project-card, .process-grid > article') ? Math.min(siblings.indexOf(target), 2) * 100 : 0;
+    target.style.setProperty('--reveal-delay', `${stagger}ms`);
+    revealObserver.observe(target);
+  }
 }
