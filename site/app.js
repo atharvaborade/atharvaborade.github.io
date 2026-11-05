@@ -65,11 +65,12 @@ const caseStudies = {
     <h3>The engineering question</h3>
     <p>What stops two accounts from booking the same coach at the same time? And can a user cancel someone else’s appointment through the API?</p>
     <h3>What the project demonstrates</h3>
-    <ul><li>18 API checks and 6 browser checks, with isolated accounts and disposable databases.</li><li>Sequential and concurrent booking checks, authorization checks, and session revocation.</li><li>Axe accessibility scans, a keyboard check, and mobile layout checks.</li><li>Two test-only faults: removing booking uniqueness and removing cancellation ownership. The intended assertions detect both.</li><li>GitHub Actions configuration and retained failure traces; local execution is verified, a hosted CI run is not yet verified.</li></ul>
+    <ul><li>18 API checks and 6 browser checks, with isolated accounts and disposable databases.</li><li>Sequential and concurrent booking checks, authorization checks, and session revocation.</li><li>Axe accessibility scans, a keyboard check, and mobile layout checks.</li><li>Two test-only faults: removing booking uniqueness and removing cancellation ownership. The intended assertions detect both.</li><li>GitHub Actions runs the baseline suite and targeted fault experiments, with retained HTML/JSON reports and failure traces.</li></ul>
     <h3>The evidence</h3>
-    <p>24 baseline tests passed locally with no skipped or flaky outcomes in the recorded run. Both seeded faults were detected. These are targeted experiments, not a complete security audit or mutation score.</p>
-    <p class="case-status"><strong>Current status:</strong> Built and validated locally. Source publication is pending repository access. There is no public live app.</p>
+    <p>24 baseline tests passed locally and in GitHub Actions. Both seeded faults were detected. These are targeted experiments, not a complete security audit or mutation score.</p>
+    <p class="case-status"><strong>Current status:</strong> Source published on GitHub. The full booking application runs locally; there is no public hosted booking service.</p>
     <p><strong>Stack:</strong> Playwright, TypeScript tests, Express, SQLite, Axe, GitHub Actions configuration.</p>
+    <a class="button button-primary" href="https://github.com/atharvaborade/playwright-quality-lab" target="_blank" rel="noopener noreferrer">View project source <span aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></span></a>
   `,
   library: `
     <h2 id="dialog-title" tabindex="-1">Library Management — Internship Project Restored</h2>

@@ -30,6 +30,6 @@ The complete button inventory is checked against the interactive tests. There ar
 
 New-tab tests intercept third-party responses so bot policies and login walls do not make the portfolio tests unreliable. They verify the actual click and destination URL, not the contents of LinkedIn or GitHub. Separate read-only requests confirmed HTTP200 for the GitHub profile and Library Management repository. The LinkedIn destination is the exact URL supplied by the user; LinkedIn may require visitors to sign in.
 
-Slotwise's case study is functional, but that application's repository/live hosting remain pending separately. Its status is stated in the dialog. No nonfunctional “Live demo” button is shown.
+Slotwise's source is published and linked from its case study. Both case studies expose working project-source links, verified by the navigation tests. The full Slotwise booking service runs locally; no nonfunctional “Live demo” button is shown.
 
 This is a Chromium interaction/accessibility audit, not exhaustive browser compatibility or full accessibility certification.

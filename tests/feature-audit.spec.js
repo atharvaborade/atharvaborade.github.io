@@ -4,6 +4,7 @@ const externalDestinations = [
   'https://github.com/atharvaborade',
   'https://www.linkedin.com/in/atharva-borade/',
   'https://github.com/atharvaborade/Library-Management',
+  'https://github.com/atharvaborade/playwright-quality-lab',
 ];
 
 test('all links have a real section or configured external destination', async ({ page }) => {
@@ -145,8 +146,11 @@ test('GitHub and LinkedIn buttons open their configured destination in a new tab
     await popup.close();
   };
   for(const link of await page.locator('a[href^="https:"]:visible').all()) await checkPopup(link);
-  await page.getByRole('button',{name:'Explore Library Management',exact:true}).click();
-  await checkPopup(page.getByRole('link',{name:'View project source',exact:true}));
+  for (const name of ['Explore Slotwise','Explore Library Management']) {
+    await page.getByRole('button',{name,exact:true}).click();
+    await checkPopup(page.getByRole('link',{name:'View project source',exact:true}));
+    await page.getByRole('button',{name:'Close case study',exact:true}).click();
+  }
 });
 
 test('scroll entrances finish with visible content and respect reduced-motion changes', async ({ page }) => {
